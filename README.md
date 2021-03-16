@@ -22,7 +22,7 @@ credentials for the Grafana admin account,.
 Installation
 ------------
 Step 1
-Set a secure password in a file called `my-secret`
+Write down a secure password in a file called `my-secret`
 
 Step 2
 Store the hostname in a env variable
@@ -38,9 +38,12 @@ helm upgrade --install --create-namespace \
   --set hostname="$GRAFANA_HOSTNAME",secret.pass=$(cat my-secret)
 ```
 
+Step 4
+Wait for everything to spin up and login to Grafana with account `admin` and your secret password at `http://your-hostname.com`.
 
-Configuration
--------------
+
+Optional extra configuration
+----------------------------
 Checkout the official Grafana helm charts for configuration possibilities
 - Grafana: https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
 - Loki: https://github.com/grafana/helm-charts/blob/main/charts/loki/values.yaml
