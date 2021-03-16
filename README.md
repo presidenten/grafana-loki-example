@@ -56,4 +56,9 @@ helm upgrade --install --create-namespace \
   -f extra-goodies.yaml
 ```
 
-Uncomment the persistant storage sections in `values.yaml` and insert your storage class to get persistance.
+### Persistent storage
+Uncomment the persistent storage sections in `values.yaml` and insert your storage class to get persistance.
+
+### Connection to Ranchers cluster monitoring
+Uncomment the prometheus datasource for Grafana in `values.yaml`
+

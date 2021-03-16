@@ -42,6 +42,10 @@ grafana:
         type: prometheus
         url: http://monitoring-loki:3100/loki  # <-- Use for alerts until Grafana 7.5.0
         isDefault: false
+  #    - name: prometheus
+  #      type: prometheus
+  #      url: http://prometheus-operated.cattle-prometheus:8080
+  #      isDefault: false
 
   testFramework:
     enabled: false
