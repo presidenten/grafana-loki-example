@@ -21,16 +21,20 @@ credentials for the Grafana admin account,.
 
 Installation
 ------------
+
 Step 1
+
 Write down a secure password in a file called `my-secret`
 
 Step 2
+
 Store the hostname in a env variable
 ```bash
 GRAFANA_HOSTNAME="your-hostname.com"
 ```
 
 Step 3
+
 Run this helm command to install or upgrade:
 ```bash
 helm upgrade --install --create-namespace \
@@ -39,6 +43,7 @@ helm upgrade --install --create-namespace \
 ```
 
 Step 4
+
 Wait for everything to spin up and login to Grafana with account `admin` and your secret password at `http://your-hostname.com`.
 
 
