@@ -100,19 +100,3 @@ promtail:
     requests:
       cpu: 100m
       memory: 128Mi
-
-  defaultVolumeMounts:
-  - name: docker
-    mountPath: /app/docker/containers
-    readOnly: true
-  - name: pods
-    mountPath: /var/log/pods
-    readOnly: true
-
-  defaultVolumes:
-  - name: docker
-    hostPath:
-      path: /app/docker/containers
-  - name: pods
-    hostPath:
-      path: /var/log/pods
