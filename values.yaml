@@ -1,0 +1,118 @@
+
+
+####################################
+########      GENERAL      #########
+####################################
+
+secret:
+  user: admin
+  pass: admin
+
+hostname: xyz.com
+
+
+
+####################################
+########      GRAFANA      #########
+####################################
+
+
+grafana:
+  admin:
+    existingSecret: grafana-credentials
+    userKey: user
+    passwordKey: pass
+
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+      - name: loki_logs
+        type: loki
+        url: http://monitoring-loki:3100
+        isDefault: true
+      - name: loki_alerts
+        type: prometheus
+        url: http://monitoring-loki:3100/loki  # <-- Use for alerts until Grafana 7.5.0
+        isDefault: false
+
+  testFramework:
+    enabled: false
+
+  # persistence:
+  #   enabled: true
+  #   accessModes:
+  #   - ReadWriteMany                          # <-- ReadWriteMany to avoid Grafana getting stuck on update
+  #   storageClassName: "delete-without-pvc"   # <-- Update with your storageclass
+  #   size: 10Gi
+
+
+
+
+###################################
+########       LOKI       #########
+###################################
+
+
+loki:
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+  # persistence:
+  #   enabled: true
+  #   accessModes:
+  #   - ReadWriteOnce
+  #   size: 10Gi
+  #   storageClassName: "delete-without-pvc"   # <-- Update with your storageclass
+
+
+
+
+#####################################
+########      PROMTAIL      #########
+#####################################
+
+
+promtail:
+  config:
+    lokiAddress: http://monitoring-loki:3100/loki/api/v1/push
+
+  rbac:
+    create: true
+    pspEnabled: true
+
+  resources:
+    limits:
+      cpu: 200m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+  defaultVolumeMounts:
+  - name: docker
+    mountPath: /app/docker/containers
+    readOnly: true
+  - name: pods
+    mountPath: /var/log/pods
+    readOnly: true
+
+  defaultVolumes:
+  - name: docker
+    hostPath:
+      path: /app/docker/containers
+  - name: pods
+    hostPath:
+      path: /var/log/pods

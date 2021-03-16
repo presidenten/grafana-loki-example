@@ -1,0 +1,18 @@
+apiVersion: v2
+name: grafana-loki-example
+description: Small demo of grafana loki promtail
+type: application
+
+version: 1.0.0
+appVersion: 1.0.0
+
+dependencies:
+  - name: grafana
+    version: ~6.6.3
+    repository:  https://grafana.github.io/helm-charts
+  - name: loki
+    version: ^2.5.0
+    repository: https://grafana.github.io/helm-charts
+  - name: promtail
+    version: ^3.5.0
+    repository: https://grafana.github.io/helm-charts
