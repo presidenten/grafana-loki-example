@@ -1,7 +1,7 @@
+
 Optional extra configuration
 ----------------------------
 A few extra goodies are available in `extra-goodies.yaml`.
-To include them, use this command for installation or upgrade.
 
 The goodies consist of:
 
@@ -10,7 +10,9 @@ The goodies consist of:
 - 29 day log retention in loki
 - promtail tolerations that loads the client on all nodes
 
-To install:
+
+Use this command to install or upgrade, and apply the extra options.
+
 
 ```bash
 helm upgrade --install --create-namespace \
@@ -21,25 +23,30 @@ helm upgrade --install --create-namespace \
 
 ---
 
-# Enable Persistent storage
+## Enable Persistent storage
+
 Uncomment the persistent storage sections in `values.yaml` and insert your storage class to get persistance.
 
 ---
 
-# Connection to Ranchers cluster monitoring
+## Connection to Ranchers cluster monitoring
+
 Uncomment the prometheus datasource for Grafana in `values.yaml`
 
 ---
 
-# Using Crio instead of Docker runtime?
-Uncomment `- cri: {}` in `values.yaml` in the promtail section, and comment out `- docker: {}`
+## Using Crio instead of Docker runtime?
 
+Uncomment `- cri: {}` in `values.yaml` in the promtail section, and comment out `- docker: {}`
 
 ---
 
-# For more configurations
+## More configurations
 
 Checkout the official Grafana helm charts for configuration possibilities
+
 - Grafana: https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+
 - Loki: https://github.com/grafana/helm-charts/blob/main/charts/loki/values.yaml
+
 - Promtail: https://github.com/grafana/helm-charts/blob/main/charts/promtail/values.yaml
