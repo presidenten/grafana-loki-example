@@ -90,6 +90,10 @@ loki:
 promtail:
   config:
     lokiAddress: http://monitoring-loki:3100/loki/api/v1/push
+    snippets:
+      pipelineStages:
+        - docker: {}
+        # - cri: {}
 
   rbac:
     create: true
