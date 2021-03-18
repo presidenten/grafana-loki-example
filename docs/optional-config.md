@@ -19,17 +19,25 @@ helm upgrade --install --create-namespace \
   -f extra-goodies.yaml
 ```
 
-### Enable Persistent storage
+---
+
+# Enable Persistent storage
 Uncomment the persistent storage sections in `values.yaml` and insert your storage class to get persistance.
 
-### Connection to Ranchers cluster monitoring
+---
+
+# Connection to Ranchers cluster monitoring
 Uncomment the prometheus datasource for Grafana in `values.yaml`
 
-### Using Crio instead of Docker runtime?
+---
+
+# Using Crio instead of Docker runtime?
 Uncomment `- cri: {}` in `values.yaml` in the promtail section, and comment out `- docker: {}`
 
 
-### For more configurations
+---
+
+# For more configurations
 
 Checkout the official Grafana helm charts for configuration possibilities
 - Grafana: https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml

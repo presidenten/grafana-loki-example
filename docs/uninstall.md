@@ -1,12 +1,16 @@
 Uninstall
 ---------
 
-To uninstall:
+## To uninstall
+
 ```bash
 helm -n monitoring uninstall monitoring
 ```
 
-If you installed the log-generator:
+---
+
+## If you installed the log-generator
+
 ```bash
 kubectl delete deployment log-generator
 ```
