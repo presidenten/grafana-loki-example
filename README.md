@@ -1,9 +1,9 @@
 Grafana Loki setup example
 ==========================
 
-tl;dr
------
-This repo contains a simple example that shows how to roll out Grafana and Grafana Loki for exeperimentation
+Description
+-----------
+This repo contains a simple example that shows how to roll out Grafana and Grafana Loki for experimentation
 
 ---
 
@@ -11,14 +11,6 @@ Requirements
 ------------
 - A Kubernetes cluster
 - Helm3 cli installed. Instructions: https://helm.sh/docs/intro/install/
-
----
-
-Description
------------
-This helm chart contains a few nice defaults for Grafana, Loki, and Promtail.
-It also rolls out an ingress rule for Grafana and a customizable secret with
-credentials for the Grafana admin account,.
 
 ---
 
