@@ -38,6 +38,6 @@ Further exploration
 
 Loki supports lots of filters and pipelines.
 
-Grafana has nice docs on `LogQL`, but for a quicker starts, checkout these cheat-sheets:
+Grafana has nice docs on `LogQL`, but for a quicker start, checkout this cheat-sheet:
 
 https://megamorf.gitlab.io/cheat-sheets/loki/
