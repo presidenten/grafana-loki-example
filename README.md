@@ -1,5 +1,5 @@
-Grafana Loki setup example
-==========================
+Grafana Loki example
+====================
 
 Description
 -----------
