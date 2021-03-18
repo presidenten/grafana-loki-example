@@ -11,6 +11,7 @@ kubectl create deployment log-generator --image=presidenten/log-generator
 When its up and running, log into Grafana with `admin` and your secret password in that you put in the `my-secret` file.
 
 Enter the `explore` section
+
 <img src="./assets/explore.png" width="600" />
 
 Enter a query the query to select log stream.
