@@ -25,11 +25,11 @@ credentials for the Grafana admin account,.
 Installation
 ------------
 
-*Step 1*
+### *Step 1*
 
 Write down a secure password in a file called `my-secret`
 
-*Step 2*
+### *Step 2*
 
 Run this helm command to install or upgrade:
 ```bash
@@ -38,7 +38,7 @@ helm upgrade --install --create-namespace \
   --set secret.pass=$(cat my-secret)
 ```
 
-*Step 3*
+### *Step 3*
 
 Wait for everything to spin up and login to Grafana with account `admin` and your secret password at `http://worker-node-ip:30000`.
 
@@ -47,7 +47,7 @@ Wait for everything to spin up and login to Grafana with account `admin` and you
 Getting started with Loki
 -------------------------
 
-Read more here: [./docs/testing.md](./docs/testing.md)
+Read more here: [./docs/exploring.md](./docs/exploring.md)
 
 
 Optional extra configuration
