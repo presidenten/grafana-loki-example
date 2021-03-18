@@ -17,7 +17,7 @@ kubectl create deployment log-generator --image=presidenten/log-generator
 - Enter a query the query to select log stream.
 Working with the job label is a great way to filter streams.
 
-- Try `{job="default/log-generator"}`
+- Try `{job="default/log-generator"}`, its in the form of `namespace/deployment`
 
 <img src="./assets/query.png" width="600" />
 
@@ -25,11 +25,19 @@ Working with the job label is a great way to filter streams.
 
 <img src="./assets/run.png" width="600" />
 
+- Congratulations! You now know the basics on how to select log streams in Grafana Loki.
+
+<img src="./assets/run.png" width="800" />
+
+- Try to click on all the buttons to figure out how to do default log type filtering, toggling timestamp etc
+
 ---
 
-Exploring
----------
+Further exploration
+-------------------
 
-Read more on Grafanas pages on `LogQL`
+Loki supports lots of filters and pipelines.
 
-https://grafana.com/docs/loki/latest/logql/
+Grafana has nice docs on `LogQL`, but for a quicker starts, checkout these cheat-sheets:
+
+https://megamorf.gitlab.io/cheat-sheets/loki/
