@@ -36,18 +36,16 @@ Wait for everything to spin up and login to Grafana with account `admin` and you
 
 ---
 
-Getting started with Loki
--------------------------
+What next?
+----------
+### Getting started with Loki
 
 Read more here: [./docs/exploring.md](./docs/exploring.md)
 
-
-Optional extra configuration
-----------------------------
+### Optional extra configuration
 
 Read more here: [./docs/optional-config.md](./docs/optional-config.md)
 
-Uninstall
----------
+### Uninstall
 
 Read more here: [./docs/uninstall.md](./docs/uninstall.md)
