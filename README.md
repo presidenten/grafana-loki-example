@@ -8,7 +8,7 @@ This repo contains a simple example that shows how to roll out Grafana and Grafa
 
 Requirements
 ------------
-- A Kubernetes cluster with nginx ingress and a domain name.
+- A Kubernetes cluster
 - Helm3 cli installed. Instructions: https://helm.sh/docs/intro/install/
 
 
