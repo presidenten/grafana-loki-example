@@ -39,6 +39,17 @@ helm upgrade --install --create-namespace \
 
 Wait for everything to spin up and login to Grafana with account `admin` and your secret password at `http://worker-node-ip:30000`.
 
+There is a log-generator that can be rolled out if you need some nice logs to look at:
+
+```bash
+kubectl create deployment log-generator --image=presidenten/log-generator
+```
+
+To see the logs in loki, run the following query:
+```
+{job="default/log-generator"}
+```
+
 
 Optional extra configuration
 ----------------------------
@@ -69,4 +80,9 @@ Uninstall
 To uninstall:
 ```bash
 helm -n monitoring uninstall monitoring
+```
+
+If you installed the log-generator:
+```bash
+kubectl delete deployment log-generator
 ```
