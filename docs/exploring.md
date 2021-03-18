@@ -27,7 +27,7 @@ Working with the job label is a great way to filter streams.
 
 - Congratulations! You now know the basics on how to select log streams in Grafana Loki.
 
-<img src="./assets/run.png" width="800" />
+<img src="./assets/running.png" width="800" />
 
 - Try to click on all the buttons to figure out how to do default log type filtering, toggling timestamp etc
 
