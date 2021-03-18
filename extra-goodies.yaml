@@ -1,6 +1,5 @@
 
 # Setup Grafana sidecar to load dashboards from configmaps
-# Set labels to help with monitoring
 grafana:
   sidecar:
     enableUniqueFilenames: true
@@ -16,6 +15,8 @@ grafana:
     datasources:
       enabled: false
 
+
+  # Set labels to help with monitoring
   labels:
     app: grafana
   podLabels:

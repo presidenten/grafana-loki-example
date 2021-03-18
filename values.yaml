@@ -8,9 +8,6 @@ secret:
   user: admin
   pass: admin
 
-hostname: xyz.com
-
-
 
 ####################################
 ########      GRAFANA      #########
@@ -30,6 +27,9 @@ grafana:
     cpu: 100m
     memory: 128Mi
 
+  testFramework:
+    enabled: false
+
   datasources:
     datasources.yaml:
       apiVersion: 1
@@ -38,24 +38,22 @@ grafana:
         type: loki
         url: http://monitoring-loki:3100
         isDefault: true
-      - name: loki_alerts
+      - name: loki_alerts                                          # <-- Use for alerts until Grafana 7.5.0
         type: prometheus
-        url: http://monitoring-loki:3100/loki  # <-- Use for alerts until Grafana 7.5.0
+        url: http://monitoring-loki:3100/loki
         isDefault: false
-  #    - name: prometheus
-  #      type: prometheus
-  #      url: http://prometheus-operated.cattle-prometheus:8080
-  #      isDefault: false
+  #    - name: prometheus                                          # <-- Uncomment to use with rancher installed prometheus
+  #      type: prometheus                                          # <-- Uncomment to use with rancher installed prometheus
+  #      url: http://prometheus-operated.cattle-prometheus:8080    # <-- Uncomment to use with rancher installed prometheus
+  #      isDefault: false                                          # <-- Uncomment to use with rancher installed prometheus
 
-  testFramework:
-    enabled: false
 
-  # persistence:
-  #   enabled: true
-  #   accessModes:
-  #   - ReadWriteMany                          # <-- ReadWriteMany to avoid Grafana getting stuck on update
-  #   storageClassName: "delete-without-pvc"   # <-- Update with your storageclass
-  #   size: 10Gi
+  #persistence:
+  #  enabled: true
+  #  accessModes:
+  #  - ReadWriteMany                                             # <-- ReadWriteMany to avoid Grafana getting stuck on update
+  #  storageClassName: "delete-without-pvc"                      # <-- Update with your storageclass
+  #  size: 10Gi
 
 
 
@@ -74,12 +72,12 @@ loki:
       cpu: 100m
       memory: 128Mi
 
-  # persistence:
-  #   enabled: true
-  #   accessModes:
-  #   - ReadWriteOnce
-  #   size: 10Gi
-  #   storageClassName: "delete-without-pvc"   # <-- Update with your storageclass
+  #persistence:
+  #  enabled: true
+  #  accessModes:
+  #  - ReadWriteOnce
+  #  size: 10Gi
+  #  storageClassName: "delete-without-pvc"                     # <-- Update with your storageclass
 
 
 

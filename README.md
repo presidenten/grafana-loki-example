@@ -28,23 +28,16 @@ Write down a secure password in a file called `my-secret`
 
 *Step 2*
 
-Store the hostname in a env variable
-```bash
-GRAFANA_HOSTNAME="your-hostname.com"
-```
-
-*Step 3*
-
 Run this helm command to install or upgrade:
 ```bash
 helm upgrade --install --create-namespace \
   -n monitoring monitoring . \
-  --set hostname="$GRAFANA_HOSTNAME",secret.pass=$(cat my-secret)
+  --set secret.pass=$(cat my-secret)
 ```
 
-*Step 4*
+*Step 3*
 
-Wait for everything to spin up and login to Grafana with account `admin` and your secret password at `http://your-hostname.com`.
+Wait for everything to spin up and login to Grafana with account `admin` and your secret password at `http://worker-node-ip:30000`.
 
 
 Optional extra configuration
@@ -60,7 +53,7 @@ To include them, use this command for installation or upgrade.
 ```bash
 helm upgrade --install --create-namespace \
   -n monitoring monitoring . \
-  --set hostname="$GRAFANA_HOSTNAME",secret.pass=$(cat my-secret) \
+  --set secret.pass=$(cat my-secret) \
   -f extra-goodies.yaml
 ```
 
