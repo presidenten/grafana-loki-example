@@ -36,7 +36,7 @@ Wait for everything to spin up and login to Grafana with account `admin` and you
 
 ---
 
-What next?
+Whats next?
 ----------
 ### Getting started with Loki
 
