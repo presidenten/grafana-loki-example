@@ -1,0 +1,14 @@
+server:
+  disable : true
+positions:
+  filename: /tmp/positions.yaml
+clients:
+  - url: http://<ip-here>:30001/loki/api/v1/push
+scrape_configs:
+- job_name: Non k8s job
+  static_configs:
+  - targets:
+      - localhost
+    labels:
+      job: ext_test/some-very-nice-job
+      __path__: /app/*.log
