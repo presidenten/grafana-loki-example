@@ -1,0 +1,16 @@
+{{ if .Values.dashboard }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-dashboard
+  labels:
+    grafana_dashboard: "1"
+    component: import-dashboards
+data:
+  {{ .Release.Name }}.json: |-
+{{ $template := (.Files.Get "conf/dashboard.json" | replace "<instance>" (printf "%s" .Release.Name) | indent 4) }}
+{{- $template := (regexReplaceAll "monitoring" $template (tpl "{{ .Release.Namespace }}" $)) -}}
+{{- $template := (regexReplaceAll "loki-stack" $template (tpl "{{ .Release.Name }}" $)) -}}
+{{- $template := (regexReplaceAll ".uid.+," $template "") -}}
+{{- $template -}}
+{{ end }}
