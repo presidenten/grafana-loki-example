@@ -36,11 +36,11 @@ grafana:
       datasources:
       - name: loki_logs
         type: loki
-        url: http://monitoring-loki:3100
+        url: http://loki-stack:3100
         isDefault: true
       - name: loki_alerts                                          # <-- Use for alerts until Grafana 7.5.0
         type: prometheus
-        url: http://monitoring-loki:3100/loki
+        url: http://loki-stack:3100/loki
         isDefault: false
   #    - name: prometheus                                          # <-- Uncomment to use with rancher installed prometheus
   #      type: prometheus                                          # <-- Uncomment to use with rancher installed prometheus
@@ -89,7 +89,7 @@ loki:
 
 promtail:
   config:
-    lokiAddress: http://monitoring-loki:3100/loki/api/v1/push
+    lokiAddress: http://loki-stack:3100/loki/api/v1/push
     snippets:
       pipelineStages:
         - docker: {}

@@ -16,7 +16,8 @@ Use this command to install or upgrade, and apply the extra options.
 
 ```bash
 helm upgrade --install --create-namespace \
-  -n monitoring monitoring . \
+  -n monitoring \
+  loki-stack . \
   --set secret.pass=$(cat my-secret) \
   -f extra-goodies.yaml
 ```

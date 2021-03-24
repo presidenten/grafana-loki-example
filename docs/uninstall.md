@@ -4,7 +4,7 @@ Uninstall
 ## To uninstall
 
 ```bash
-helm -n monitoring uninstall monitoring
+helm -n monitoring uninstall loki-stack
 ```
 
 ---

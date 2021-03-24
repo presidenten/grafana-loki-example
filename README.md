@@ -26,7 +26,8 @@ Write down a secure password in a file called `my-secret`
 Run this helm command to install or upgrade:
 ```bash
 helm upgrade --install --create-namespace \
-  -n monitoring monitoring . \
+  -n monitoring \
+  loki-stack . \
   --set secret.pass=$(cat my-secret)
 ```
 
@@ -45,6 +46,10 @@ Read more here: [./docs/exploring.md](./docs/exploring.md)
 ### Optional extra configuration
 
 Read more here: [./docs/optional-config.md](./docs/optional-config.md)
+
+### Try working with promtail
+
+Read more here: [./docs/promtail.md](./docs/promtail.md)
 
 ### Uninstall
 
