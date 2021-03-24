@@ -33,6 +33,29 @@ Working with the job label is a great way to filter streams.
 
 ---
 
+Some queries to try
+-------------------
+
+### Work with filters and parsers ###
+
+- `{job="default/log-generator"}`
+- `{job="default/log-generator"} |= "Timeout"`
+- `{job="default/log-generator"} | json | message=~"Timeout.+"`
+- `{job="default/log-generator"} | json | author=~".*(Proverb|Maya).*"`
+- `{job="default/log-generator"} | json | author=~".+" | line_format "Author {{.author}}s fave color is {{.nested_color}}"`
+
+### And some graphs###
+
+#### Count log lines ####
+- `sum by (job) (count_over_time({job="default/log-generator"} | json | level="error" [10m]))`
+
+
+#### Work with numbers in the logs (notice the `unwrap duration`) ####
+- `sum by (job) (quantile_over_time(0.99, {job="default/log-generator"} | json | message=~"Timeout.+" | unwrap duration [10m]))`
+- `sum by (job) (quantile_over_time(0.95, {job="default/log-generator"} | json | message=~"Timeout.+" | unwrap duration [10m]))`
+- `sum by (job) (avg_over_time({job="default/log-generator"} | json | message=~"Timeout.+" | unwrap duration [10m]))`
+
+---
 Further exploration
 -------------------
 
