@@ -20,7 +20,6 @@
   "panels": [
     {
       "datasource": null,
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -28,8 +27,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 12,
-        "w": 14,
+        "h": 14,
+        "w": 12,
         "x": 0,
         "y": 0
       },
@@ -43,13 +42,11 @@
       "pluginVersion": "7.4.3",
       "targets": [
         {
-          "expr": "{job=\"monitoring/loki\"} | logfmt | line_format \"What is loki doing? - {{.msg}}\" |~ \"-..+\"",
-          "instant": false,
-          "range": true,
+          "expr": "{job=\"default/log-generator\"} | json | author=~\".+\" | line_format \"Author {{.author}}s fave color is {{.nested_color}}\"",
           "refId": "A"
         }
       ],
-      "title": "Loki stuff",
+      "title": "Favorite colors",
       "type": "logs"
     }
   ],
@@ -66,6 +63,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "Hello World - <instance>",
-  "uid": "2DU-xLQGz",
-  "version": 13
+  "uid": "o-aUqEQGz",
+  "version": 1
 }
