@@ -1,6 +1,4 @@
 
-dashboard: true
-
 # Setup Grafana sidecar to load dashboards from configmaps
 grafana:
   sidecar:
